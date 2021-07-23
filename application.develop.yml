@@ -1,10 +1,10 @@
 database:
-  dialect: sqlite3
-  host:  book.db
-  port:
-  dbname: 
-  username: 
-  password: 
+  dialect: postgres
+  host: localhost
+  port: 5432
+  dbname: catalog
+  username: catalog
+  password: catalog
   migration: true
 
 extension:

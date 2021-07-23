@@ -3,23 +3,23 @@ package controller
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
+	"github.com/Screen17/catalog/model/dto"
+	"github.com/Screen17/catalog/service"
+	"github.com/Screen17/catalog/session"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/model/dto"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/service"
-	"github.com/ybkuroki/go-webapp-sample/session"
 )
 
 // AccountController is a controller for managing user account.
 type AccountController struct {
-	context      mycontext.Context
+	context      appcontext.Context
 	service      *service.AccountService
 	dummyAccount *model.Account
 }
 
 // NewAccountController is constructor.
-func NewAccountController(context mycontext.Context) *AccountController {
+func NewAccountController(context appcontext.Context) *AccountController {
 	return &AccountController{
 		context:      context,
 		service:      service.NewAccountService(context),

@@ -1,4 +1,4 @@
-module github.com/ybkuroki/go-webapp-sample
+module github.com/Screen17/catalog
 
 go 1.16
 
@@ -11,7 +11,7 @@ require (
 	github.com/labstack/echo-contrib v0.11.0
 	github.com/labstack/echo/v4 v4.4.0
 	github.com/leodido/go-urn v1.2.0 // indirect
-	github.com/lib/pq v1.7.0 // indirect
+	github.com/lib/pq v1.10.2
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
 	github.com/stretchr/testify v1.7.0
 	github.com/valyala/fasttemplate v1.2.1
@@ -22,6 +22,7 @@ require (
 	gopkg.in/go-playground/validator.v9 v9.31.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 	gopkg.in/yaml.v2 v2.4.0
+	gorm.io/datatypes v1.0.1
 	gorm.io/driver/mysql v1.1.1
 	gorm.io/driver/postgres v1.1.0
 	gorm.io/driver/sqlite v1.1.4

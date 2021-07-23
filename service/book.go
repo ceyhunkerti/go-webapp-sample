@@ -1,20 +1,20 @@
 package service
 
 import (
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/model/dto"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/repository"
-	"github.com/ybkuroki/go-webapp-sample/util"
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
+	"github.com/Screen17/catalog/model/dto"
+	"github.com/Screen17/catalog/repository"
+	"github.com/Screen17/catalog/util"
 )
 
 // BookService is a service for managing books.
 type BookService struct {
-	context mycontext.Context
+	context appcontext.Context
 }
 
 // NewBookService is constructor.
-func NewBookService(context mycontext.Context) *BookService {
+func NewBookService(context appcontext.Context) *BookService {
 	return &BookService{context: context}
 }
 

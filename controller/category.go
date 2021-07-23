@@ -3,19 +3,19 @@ package controller
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/service"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/service"
 )
 
 // CategoryController is a controller for managing category data.
 type CategoryController struct {
-	context mycontext.Context
+	context appcontext.Context
 	service *service.CategoryService
 }
 
 // NewCategoryController is constructor.
-func NewCategoryController(context mycontext.Context) *CategoryController {
+func NewCategoryController(context appcontext.Context) *CategoryController {
 	return &CategoryController{context: context, service: service.NewCategoryService(context)}
 }
 

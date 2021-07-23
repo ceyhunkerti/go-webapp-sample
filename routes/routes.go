@@ -1,16 +1,16 @@
-package router
+package routes
 
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/controller"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	"github.com/ybkuroki/go-webapp-sample/controller"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
 )
 
 // Init initialize the routing of this application.
-func Init(e *echo.Echo, context mycontext.Context) {
+func Init(e *echo.Echo, context appcontext.Context) {
 	conf := context.GetConfig()
 	if conf.Extension.CorsEnabled {
 		e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
@@ -36,11 +36,14 @@ func Init(e *echo.Echo, context mycontext.Context) {
 	e.HTTPErrorHandler = errorHandler.JSONError
 	e.Use(middleware.Recover())
 
+	dataset := controller.NewDatasetController(context)
 	book := controller.NewBookController(context)
 	category := controller.NewCategoryController(context)
 	format := controller.NewFormatController(context)
 	account := controller.NewAccountController(context)
 	health := controller.NewHealthController(context)
+
+	e.GET(controller.APIDatasets, func(c echo.Context) error { return dataset.GetDatasetList(c) })
 
 	e.GET(controller.APIBooksID, func(c echo.Context) error { return book.GetBook(c) })
 	e.GET(controller.APIBooks, func(c echo.Context) error { return book.GetBookList(c) })

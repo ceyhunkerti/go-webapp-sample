@@ -1,12 +1,12 @@
 package migration
 
 import (
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
 )
 
 // InitMasterData creates the master data used in this application.
-func InitMasterData(context mycontext.Context) {
+func InitMasterData(context appcontext.Context) {
 	if context.GetConfig().Extension.MasterGenerator {
 		rep := context.GetRepository()
 

@@ -1,17 +1,17 @@
 package service
 
 import (
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
 )
 
 // FormatService is a service for managing master data such as format and category.
 type FormatService struct {
-	context mycontext.Context
+	context appcontext.Context
 }
 
 // NewFormatService is constructor.
-func NewFormatService(context mycontext.Context) *FormatService {
+func NewFormatService(context appcontext.Context) *FormatService {
 	return &FormatService{context: context}
 }
 

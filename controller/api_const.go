@@ -1,16 +1,12 @@
 package controller
 
 const (
-	// API represents the group of API.
-	API = "/api"
-	// APIBook represents the group of book management API.
-	APIBooks = API + "/books"
-	// APIBooksID represents the API to get book data using id.
-	APIBooksID = APIBooks + "/:id"
-	// APICategory represents the group of category management API.
+	API           = "/api"
+	APIBooks      = API + "/books"
+	APIBooksID    = APIBooks + "/:id"
 	APICategories = API + "/categories"
-	// APIFormat represents the group of format management API.
-	APIFormats = API + "/formats"
+	APIFormats    = API + "/formats"
+	APIDatasets   = API + "/datasets"
 )
 
 const (

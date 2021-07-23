@@ -1,14 +1,14 @@
 package main
 
 import (
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/config"
+	"github.com/Screen17/catalog/logger"
+	"github.com/Screen17/catalog/middleware"
+	"github.com/Screen17/catalog/migration"
+	"github.com/Screen17/catalog/repository"
+	"github.com/Screen17/catalog/routes"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/config"
-	"github.com/ybkuroki/go-webapp-sample/logger"
-	"github.com/ybkuroki/go-webapp-sample/middleware"
-	"github.com/ybkuroki/go-webapp-sample/migration"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/repository"
-	"github.com/ybkuroki/go-webapp-sample/router"
 )
 
 func main() {
@@ -19,12 +19,12 @@ func main() {
 	logger.GetZapLogger().Infof("Loaded this configuration : application." + env + ".yml")
 
 	rep := repository.NewBookRepository(logger, conf)
-	context := mycontext.NewContext(rep, conf, logger)
+	context := appcontext.NewContext(rep, conf, logger)
 
 	migration.CreateDatabase(context)
 	migration.InitMasterData(context)
 
-	router.Init(e, context)
+	routes.Init(e, context)
 	middleware.InitLoggerMiddleware(e, context)
 	middleware.InitSessionMiddleware(e, context)
 

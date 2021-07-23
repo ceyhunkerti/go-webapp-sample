@@ -1,18 +1,18 @@
 package service
 
 import (
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
 	"golang.org/x/crypto/bcrypt"
 )
 
 // AccountService is a service for managing user account.
 type AccountService struct {
-	context mycontext.Context
+	context appcontext.Context
 }
 
 // NewAccountService is constructor.
-func NewAccountService(context mycontext.Context) *AccountService {
+func NewAccountService(context appcontext.Context) *AccountService {
 	return &AccountService{context: context}
 }
 

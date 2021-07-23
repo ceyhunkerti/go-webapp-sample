@@ -3,7 +3,7 @@ package model
 import (
 	"encoding/json"
 
-	"github.com/ybkuroki/go-webapp-sample/repository"
+	"github.com/Screen17/catalog/repository"
 )
 
 // Authority defines struct of authority data.

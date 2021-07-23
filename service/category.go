@@ -1,21 +1,18 @@
 package service
 
 import (
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
 )
 
-// CategoryService is a service for managing master data such as format and category.
 type CategoryService struct {
-	context mycontext.Context
+	context appcontext.Context
 }
 
-// NewCategoryService is constructor.
-func NewCategoryService(context mycontext.Context) *CategoryService {
+func NewCategoryService(context appcontext.Context) *CategoryService {
 	return &CategoryService{context: context}
 }
 
-// FindAllCategories returns the list of all categories.
 func (m *CategoryService) FindAllCategories() *[]model.Category {
 	rep := m.context.GetRepository()
 	category := model.Category{}

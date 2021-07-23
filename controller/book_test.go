@@ -6,12 +6,12 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model"
+	"github.com/Screen17/catalog/model/dto"
+	"github.com/Screen17/catalog/test"
 	"github.com/labstack/echo/v4"
 	"github.com/stretchr/testify/assert"
-	"github.com/ybkuroki/go-webapp-sample/model"
-	"github.com/ybkuroki/go-webapp-sample/model/dto"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/test"
 )
 
 func TestGetBookList(t *testing.T) {
@@ -103,7 +103,7 @@ func TestDeleteBook(t *testing.T) {
 	assert.JSONEq(t, test.ConvertToString(data), rec.Body.String())
 }
 
-func setUpTestData(context mycontext.Context) {
+func setUpTestData(context appcontext.Context) {
 	model := model.NewBook("Test1", "123-123-123-1", 1, 1)
 	repo := context.GetRepository()
 	_, _ = model.Create(repo)

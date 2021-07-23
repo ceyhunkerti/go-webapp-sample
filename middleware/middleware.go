@@ -7,24 +7,24 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/config"
+	mySession "github.com/Screen17/catalog/session"
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 	"github.com/valyala/fasttemplate"
-	"github.com/ybkuroki/go-webapp-sample/config"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	mySession "github.com/ybkuroki/go-webapp-sample/session"
 	"gopkg.in/boj/redistore.v1"
 )
 
 // InitLoggerMiddleware initialize a middleware for logger.
-func InitLoggerMiddleware(e *echo.Echo, context mycontext.Context) {
+func InitLoggerMiddleware(e *echo.Echo, context appcontext.Context) {
 	e.Use(RequestLoggerMiddleware(context))
 	e.Use(ActionLoggerMiddleware(context))
 }
 
 // InitSessionMiddleware initialize a middleware for session management.
-func InitSessionMiddleware(e *echo.Echo, context mycontext.Context) {
+func InitSessionMiddleware(e *echo.Echo, context appcontext.Context) {
 	conf := context.GetConfig()
 	logger := context.GetLogger()
 	if conf.Extension.SecurityEnabled {
@@ -45,7 +45,7 @@ func InitSessionMiddleware(e *echo.Echo, context mycontext.Context) {
 }
 
 // RequestLoggerMiddleware is middleware for logging the contents of requests.
-func RequestLoggerMiddleware(context mycontext.Context) echo.MiddlewareFunc {
+func RequestLoggerMiddleware(context appcontext.Context) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			req := c.Request()
@@ -82,7 +82,7 @@ func RequestLoggerMiddleware(context mycontext.Context) echo.MiddlewareFunc {
 
 // ActionLoggerMiddleware is middleware for logging the start and end of controller processes.
 // ref: https://echo.labstack.com/cookbook/middleware
-func ActionLoggerMiddleware(context mycontext.Context) echo.MiddlewareFunc {
+func ActionLoggerMiddleware(context appcontext.Context) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			logger := context.GetLogger()

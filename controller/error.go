@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
 )
 
 // APIError has a error code and a message.
@@ -15,11 +15,11 @@ type APIError struct {
 
 // ErrorController is a controller for handling errors.
 type ErrorController struct {
-	context mycontext.Context
+	context appcontext.Context
 }
 
 // NewErrorController is constructor.
-func NewErrorController(context mycontext.Context) *ErrorController {
+func NewErrorController(context appcontext.Context) *ErrorController {
 	return &ErrorController{context: context}
 }
 

@@ -1,9 +1,9 @@
 # go-webapp-sample
 
-[![license](https://img.shields.io/github/license/ybkuroki/go-webapp-sample?style=for-the-badge)](https://github.com/ybkuroki/go-webapp-sample/blob/master/LICENSE)
-[![report](https://goreportcard.com/badge/github.com/ybkuroki/go-webapp-sample?style=for-the-badge)](https://goreportcard.com/report/github.com/ybkuroki/go-webapp-sample)
-[![workflow](https://img.shields.io/github/workflow/status/ybkuroki/go-webapp-sample/check?label=check&style=for-the-badge&logo=github)](https://github.com/ybkuroki/go-webapp-sample/actions?query=workflow%3Acheck)
-[![release](https://img.shields.io/github/release/ybkuroki/go-webapp-sample?style=for-the-badge&logo=github)](https://github.com/ybkuroki/go-webapp-sample/releases)
+[![license](https://img.shields.io/github/license/ybkuroki/go-webapp-sample?style=for-the-badge)](https://github.com/Screen17/catalog/blob/master/LICENSE)
+[![report](https://goreportcard.com/badge/github.com/Screen17/catalog?style=for-the-badge)](https://goreportcard.com/report/github.com/Screen17/catalog)
+[![workflow](https://img.shields.io/github/workflow/status/ybkuroki/go-webapp-sample/check?label=check&style=for-the-badge&logo=github)](https://github.com/Screen17/catalog/actions?query=workflow%3Acheck)
+[![release](https://img.shields.io/github/release/ybkuroki/go-webapp-sample?style=for-the-badge&logo=github)](https://github.com/Screen17/catalog/releases)
 
 ## Preface
 This repository is the sample of web application using golang.
@@ -24,7 +24,7 @@ Perform the following steps:
 1. Download and install [Golang](https://golang.org/).
 1. Get the source code of this repository by the following command.
     ```bash
-    go get -u github.com/ybkuroki/go-webapp-sample
+    go get -u github.com/Screen17/catalog
     ```
 
 ## Starting Server
@@ -148,7 +148,7 @@ This sample uses the following libraries.
 |zap|1.18.1|
 
 ## Contribution
-Please read [CONTRIBUTING.md](https://github.com/ybkuroki/go-webapp-sample/blob/master/CONTRIBUTING.md) for proposing new functions, reporting bugs and submitting pull requests before contributing to this repository.
+Please read [CONTRIBUTING.md](https://github.com/Screen17/catalog/blob/master/CONTRIBUTING.md) for proposing new functions, reporting bugs and submitting pull requests before contributing to this repository.
 
 ## License
 The License of this sample is *MIT License*.

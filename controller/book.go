@@ -3,20 +3,20 @@ package controller
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/model/dto"
+	"github.com/Screen17/catalog/service"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/model/dto"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/service"
 )
 
 // BookController is a controller for managing books.
 type BookController struct {
-	context mycontext.Context
+	context appcontext.Context
 	service *service.BookService
 }
 
 // NewBookController is constructor.
-func NewBookController(context mycontext.Context) *BookController {
+func NewBookController(context appcontext.Context) *BookController {
 	return &BookController{context: context, service: service.NewBookService(context)}
 }
 

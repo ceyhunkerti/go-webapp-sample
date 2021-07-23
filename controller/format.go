@@ -3,19 +3,19 @@ package controller
 import (
 	"net/http"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/service"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/service"
 )
 
 // FormatController is a controller for managing format data.
 type FormatController struct {
-	context mycontext.Context
+	context appcontext.Context
 	service *service.FormatService
 }
 
 // NewFormatController is constructor.
-func NewFormatController(context mycontext.Context) *FormatController {
+func NewFormatController(context appcontext.Context) *FormatController {
 	return &FormatController{context: context, service: service.NewFormatService(context)}
 }
 

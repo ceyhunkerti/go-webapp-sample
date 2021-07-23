@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"math"
 
-	"github.com/ybkuroki/go-webapp-sample/repository"
-	"github.com/ybkuroki/go-webapp-sample/util"
+	"github.com/Screen17/catalog/repository"
+	"github.com/Screen17/catalog/util"
 	"gorm.io/gorm"
 )
 

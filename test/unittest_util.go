@@ -4,19 +4,19 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/Screen17/catalog/appcontext"
+	"github.com/Screen17/catalog/config"
+	"github.com/Screen17/catalog/logger"
+	"github.com/Screen17/catalog/middleware"
+	"github.com/Screen17/catalog/migration"
+	"github.com/Screen17/catalog/repository"
 	"github.com/labstack/echo/v4"
-	"github.com/ybkuroki/go-webapp-sample/config"
-	"github.com/ybkuroki/go-webapp-sample/logger"
-	"github.com/ybkuroki/go-webapp-sample/middleware"
-	"github.com/ybkuroki/go-webapp-sample/migration"
-	"github.com/ybkuroki/go-webapp-sample/mycontext"
-	"github.com/ybkuroki/go-webapp-sample/repository"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
 
 // Prepare func is to prepare for unit test.
-func Prepare() (*echo.Echo, mycontext.Context) {
+func Prepare() (*echo.Echo, appcontext.Context) {
 	e := echo.New()
 
 	conf := &config.Config{}
@@ -29,7 +29,7 @@ func Prepare() (*echo.Echo, mycontext.Context) {
 
 	logger := initTestLogger()
 	rep := repository.NewBookRepository(logger, conf)
-	context := mycontext.NewContext(rep, conf, logger)
+	context := appcontext.NewContext(rep, conf, logger)
 
 	middleware.InitLoggerMiddleware(e, context)
 
