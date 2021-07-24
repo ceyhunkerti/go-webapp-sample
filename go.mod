@@ -3,6 +3,7 @@ module github.com/Screen17/catalog
 go 1.16
 
 require (
+	github.com/aws/aws-sdk-go v1.40.7
 	github.com/garyburd/redigo v1.6.2 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
 	github.com/gorilla/sessions v1.2.1

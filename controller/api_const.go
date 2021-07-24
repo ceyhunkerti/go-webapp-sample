@@ -7,6 +7,7 @@ const (
 	APICategories = API + "/categories"
 	APIFormats    = API + "/formats"
 	APIDatasets   = API + "/datasets"
+	APILineages   = API + "/lineages"
 )
 
 const (

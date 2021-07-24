@@ -2,7 +2,7 @@
 q-layout(view="lHh Lpr lFf")
   q-header.header()
     q-toolbar.bg-white.text-primary
-      q-btn(flat round icon="las la-swatchbook")
+      q-btn(flat round icon="las la-swatchbook" color="green-5")
   q-page-container
     router-view
 </template>

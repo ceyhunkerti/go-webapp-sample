@@ -37,6 +37,7 @@ func Init(e *echo.Echo, context appcontext.Context) {
 	e.Use(middleware.Recover())
 
 	dataset := controller.NewDatasetController(context)
+	lineage := controller.NewLineageController(context)
 	book := controller.NewBookController(context)
 	category := controller.NewCategoryController(context)
 	format := controller.NewFormatController(context)
@@ -44,6 +45,8 @@ func Init(e *echo.Echo, context appcontext.Context) {
 	health := controller.NewHealthController(context)
 
 	e.GET(controller.APIDatasets, func(c echo.Context) error { return dataset.GetDatasetList(c) })
+
+	e.GET(controller.APILineages, func(c echo.Context) error { return lineage.GetLineageList(c) })
 
 	e.GET(controller.APIBooksID, func(c echo.Context) error { return book.GetBook(c) })
 	e.GET(controller.APIBooks, func(c echo.Context) error { return book.GetBookList(c) })
