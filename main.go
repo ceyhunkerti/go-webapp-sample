@@ -18,7 +18,7 @@ func main() {
 	logger := logger.NewLogger(env)
 	logger.GetZapLogger().Infof("Loaded this configuration : application." + env + ".yml")
 
-	rep := repository.NewBookRepository(logger, conf)
+	rep := repository.NewCatalogRepository(logger, conf)
 	context := appcontext.NewContext(rep, conf, logger)
 
 	migration.CreateDatabase(context)

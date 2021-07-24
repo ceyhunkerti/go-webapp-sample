@@ -41,12 +41,12 @@ type repository struct {
 }
 
 // bookRepository is a concrete repository that implements repository.
-type bookRepository struct {
+type catalogRepository struct {
 	*repository
 }
 
 // NewBookRepository is constructor for bookRepository.
-func NewBookRepository(logger *logger.Logger, conf *config.Config) Repository {
+func NewCatalogRepository(logger *logger.Logger, conf *config.Config) Repository {
 	logger.GetZapLogger().Infof("Try database connection")
 	db, err := connectDatabase(logger, conf)
 	if err != nil {
@@ -54,7 +54,7 @@ func NewBookRepository(logger *logger.Logger, conf *config.Config) Repository {
 		os.Exit(2)
 	}
 	logger.GetZapLogger().Infof("Success database connection, %s:%s", conf.Database.Host, conf.Database.Port)
-	return &bookRepository{&repository{db: db}}
+	return &catalogRepository{&repository{db: db}}
 }
 
 const (

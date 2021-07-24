@@ -28,7 +28,7 @@ func Prepare() (*echo.Echo, appcontext.Context) {
 	conf.Log.RequestLogFormat = "${remote_ip} ${account_name} ${uri} ${method} ${status}"
 
 	logger := initTestLogger()
-	rep := repository.NewBookRepository(logger, conf)
+	rep := repository.NewCatalogRepository(logger, conf)
 	context := appcontext.NewContext(rep, conf, logger)
 
 	middleware.InitLoggerMiddleware(e, context)
